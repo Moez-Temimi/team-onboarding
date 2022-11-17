@@ -8,8 +8,8 @@ import { redirect } from "next/dist/server/api-utils";
 export default function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
   const { mutate, isLoading } = useMutation(loginUser, {
-    onSuccess: (data) => {
-      console.log("data", data);
+    onSuccess(context) {
+      console.log("data", context);
 
       const message = "Welcome Back";
       alert(message);
@@ -107,7 +107,7 @@ export default function Login() {
             Login
           </Link>
           <Link
-            href="homePage"
+            href="/auth/admin-loggin"
             className="text-gray-900  ml-2 hover:text-blue-500 cursor-pointer"
           >
             Are You An Admin??

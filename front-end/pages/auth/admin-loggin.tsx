@@ -7,9 +7,11 @@ export default function Login() {
   const [admin, setAdmin] = useState({ email: "", password: "" });
 
   const { mutate, isLoading } = useMutation(loginUser, {
-    onSuccess: () => {
+    onSuccess: (context) => {
+      console.log("data", context);
       const message = "Welcome Back";
       alert(message);
+      return context;
     },
     onError: () => {
       alert("there was an error");
