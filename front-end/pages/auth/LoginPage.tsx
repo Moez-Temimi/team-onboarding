@@ -21,11 +21,6 @@ export default function Login() {
 
   const onSubmit = (data: any) => {
     mutate(data);
-    signIn("credentials", {
-      email: user.email,
-      password: user.password,
-      redirect: false,
-    });
   };
 
   return (
